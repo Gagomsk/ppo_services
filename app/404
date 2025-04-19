@@ -1,0 +1,73 @@
+// pages/404.js
+import Image from 'next/image'
+import Link from 'next/link'
+
+export default function Custom404() {
+  return (
+    <div className="wrapper">
+      {/* Вместо <h1>404</h1> — картинка из public/images */}
+      <Image
+        src="/Images/404.svg"
+        alt="404"
+        width={200}
+        height={200}
+        priority
+      />
+
+      {/* Заголовок под картинкой */}
+      <p className="title">Страница недоступна</p>
+
+      {/* Две строки с переносом */}
+      <p className="subtitle">
+        К сожалению, такой страницы не существует.<br/>
+        Вероятно, она была удалена, либо её здесь никогда не было.
+      </p>
+
+      {/* Красная кнопка */}
+      <Link href="/" className="button">
+        Вернуться на главную
+      </Link>
+
+      <style jsx>{`
+        .wrapper {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;    /* столбиком */
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 20px;
+          background: #fff;
+        }
+
+        .title {
+          font-family: 'Gilroy ExtraBold';
+          font-size: 20px;
+          margin: 16px 0 8px;
+        }
+
+        .subtitle {
+          font-family: 'Gilroy Light';
+          font-size: 15px;
+          color: #207EEB;
+          margin-bottom: 24px;
+          line-height: 1.4;
+        }
+
+        .button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 196.5px;
+          height: 46.85px;
+          background-color: #F34252;
+          font-family: 'Gilroy ExtraBold';
+          font-size: 16px;
+          color: #FFFFFF;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+      `}</style>
+    </div>
+  )
+}
